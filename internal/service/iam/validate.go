@@ -58,7 +58,7 @@ var validOpenIDURL = validation.All(
 )
 
 var validRolePolicyRole = validation.All(
-	validation.StringLenBetween(1, 128),
+	validation.StringLenBetween(1, 64),
 	validation.StringMatch(regexache.MustCompile(`[\w+=,.@-]+`), ""),
 	func(v any, k string) (ws []string, es []error) {
 		if _, errs := verify.ValidARN(v, k); len(errs) == 0 {
